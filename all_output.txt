@@ -1,0 +1,97 @@
+==== Preprocessing ogbn_papers100m =====
+File already exists: /scratch/yw8143/mariusdataset/artifact_papers_all/ogbn_papers100m/papers100M-bin.zip
+Reading edges
+Remapping Edges
+Node mapping written to: /scratch/yw8143/mariusdataset/artifact_papers_all/ogbn_papers100m/nodes/node_mapping.txt
+Dataset statistics written to: /scratch/yw8143/mariusdataset/artifact_papers_all/ogbn_papers100m/dataset.yaml
+=========================================
+Running: marius 
+Configuration: experiment_manager/system_comparisons/configs/ogbn_papers100m/marius_gs.yaml
+Saving results to: results/ogbn_papers100m/marius_gs
+[2023-09-13 01:38:50.702] [info] [marius.cpp:29] Start initialization
+[2023-09-13 01:38:51.350] [info] [marius.cpp:66] Initialization Complete: 0.648s
+Traceback (most recent call last):
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/marius_train", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/console_scripts/marius_train.py", line 7, in main
+    m.marius_train(len(sys.argv), sys.argv)
+RuntimeError: start (0) + length (1615685872) exceeds dimension size (0).
+Exception raised from narrow_symint at ../aten/src/ATen/native/TensorShape.cpp:1364 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x57 (0x7f614ea0e4d7 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x64 (0x7f614e9d836b in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #2: at::native::narrow_symint(at::Tensor const&, long, c10::SymInt, c10::SymInt) + 0x635 (0x7f6176d37635 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x2e0a0ea (0x7f6177bbc0ea in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: <unknown function> + 0x2e0a41a (0x7f6177bbc41a in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0x24d7fd2 (0x7f6177289fd2 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::_ops::narrow::call(at::Tensor const&, long, c10::SymInt, c10::SymInt) + 0x1ff (0x7f617723204f in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: <unknown function> + 0x51523 (0x7f618f604523 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #8: <unknown function> + 0xc000d (0x7f618f67300d in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #9: <unknown function> + 0xf979a (0x7f618f6ac79a in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #10: <unknown function> + 0x118f67 (0x7f618f6cbf67 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #11: <unknown function> + 0xc7792 (0x7f618f67a792 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #12: <unknown function> + 0x54f62 (0x7f618f607f62 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #13: <unknown function> + 0x7b6bd (0x7f618f62e6bd in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #14: <unknown function> + 0x133e71 (0x7f618f6e6e71 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/_pymarius.cpython-310-x86_64-linux-gnu.so)
+frame #15: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x4fc697]
+frame #16: _PyObject_MakeTpCall + 0x25b (0x4f614b in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #17: _PyEval_EvalFrameDefault + 0x53d6 (0x4f2376 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #18: _PyFunction_Vectorcall + 0x6f (0x4fcadf in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #19: _PyEval_EvalFrameDefault + 0x31f (0x4ed2bf in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #20: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x591d92]
+frame #21: PyEval_EvalCode + 0x87 (0x591cd7 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #22: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x5c2967]
+frame #23: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x5bdad0]
+frame #24: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x45956b]
+frame #25: _PyRun_SimpleFileObject + 0x19f (0x5b805f in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #26: _PyRun_AnyFileObject + 0x43 (0x5b7dc3 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #27: Py_RunMain + 0x38d (0x5b4b7d in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #28: Py_BytesMain + 0x39 (0x584e49 in /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python)
+frame #29: __libc_start_main + 0xf3 (0x7f618fb85cf3 in /lib64/libc.so.6)
+frame #30: /scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/python() [0x584cfe]
+
+Complete. Total runtime: 4.1763s
+=========================================
+=========================================
+Running: dgl 
+Configuration: experiment_manager/system_comparisons/configs/ogbn_papers100m/dgl_gs.txt
+Saving results to: results/ogbn_papers100m/dgl_gs
+Traceback (most recent call last):
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/run_dgl.py", line 82, in <module>
+    run_nc(config_args)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/node_classification.py", line 242, in run_nc
+    full_graph = get_marius_dataset_nc(args.base_directory, add_reverse_edges=False, only_sample=args.only_sample)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/datasets.py", line 170, in get_marius_dataset_nc
+    dataset.process()
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/datasets.py", line 100, in process
+    dataset_stats = OmegaConf.load(base_directory + "/dataset.yaml")
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/omegaconf/omegaconf.py", line 189, in load
+    with io.open(os.path.abspath(file_), "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yw8143/marius_artifact/datasets/ogbn_papers100m/dataset.yaml'
+Complete. Total runtime: 5.2341s
+=========================================
+=========================================
+Running: pyg 
+Configuration: experiment_manager/system_comparisons/configs/ogbn_papers100m/pyg_gs.txt
+Saving results to: results/ogbn_papers100m/pyg_gs
+Traceback (most recent call last):
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/run_pyg.py", line 520, in <module>
+    run_multi_gpu_nc(config_args)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/multi_gpu.py", line 151, in run_multi_gpu_nc
+    data = get_marius_dataset_nc(c_args.dataset, c_args.add_reverse_edges).share_memory_()
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/datasets.py", line 64, in get_marius_dataset_nc
+    dataset_stats = OmegaConf.load(base_directory + "/dataset.yaml")
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/omegaconf/omegaconf.py", line 189, in load
+    with io.open(os.path.abspath(file_), "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yw8143/marius_artifact/datasets/ogbn_papers100m/dataset.yaml'
+Complete. Total runtime: 4.1946s
+=========================================
+Printing results summary
+-----
+Experiment: marius_gs
+-----
+-----
+Experiment: dgl_gs
+-----
+-----
+Experiment: pyg_gs
+-----

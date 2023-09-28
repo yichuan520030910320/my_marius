@@ -1,0 +1,13 @@
+Full Graph: Graph(num_nodes=169343, num_edges=1166243,
+      ndata_schemes={'train_mask': Scheme(shape=(), dtype=torch.bool), 'val_mask': Scheme(shape=(), dtype=torch.bool), 'test_mask': Scheme(shape=(), dtype=torch.bool), 'feat': Scheme(shape=(128,), dtype=torch.float32), 'label': Scheme(shape=(), dtype=torch.int32)}
+      edata_schemes={})
+Num Rels:  1
+Feat dim:  128
+Traceback (most recent call last):
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/run_dgl.py", line 82, in <module>
+    run_nc(config_args)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/node_classification.py", line 295, in run_nc
+    run(0, devices, args.num_gpus, data, all_args)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/dgl/node_classification.py", line 164, in run
+    train_dl = dgl.dataloading.NodeDataLoader(full_graph, train_node_ids, train_nbr_sampler, device=device,
+AttributeError: module 'dgl.dataloading' has no attribute 'NodeDataLoader'. Did you mean: 'DataLoader'?

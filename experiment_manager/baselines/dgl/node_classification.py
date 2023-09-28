@@ -142,26 +142,26 @@ def run(proc_id, devices, num_gpus, data, all_args):
     if sample_device != CPU:
         full_graph = full_graph.to(device)
         train_node_ids = train_node_ids.to(device)
-        kwargs = {'batch_size': args.train_batch_size, 'shuffle': True, 'drop_last': False, 'pin_memory': False,
+        kwargs = {'batch_size': args.train_batch_size, 'shuffle': True, 'drop_last': False, 
                   'num_workers': 0}
     else:
-        kwargs = {'batch_size': args.train_batch_size, 'shuffle': True, 'drop_last': False, 'pin_memory': False,
+        kwargs = {'batch_size': args.train_batch_size, 'shuffle': True, 'drop_last': False, 
                   'num_workers': args.num_workers, 'prefetch_factor': args.prefetch_factor,
                   'persistent_workers': args.persistent_workers}
 
         if args.num_workers == 0:
             kwargs.pop('prefetch_factor')
             kwargs.pop('persistent_workers')
-
+    print("kwargs: ", kwargs)
     if args.print_timing:
-        train_dl = dgl.dataloading.NodeDataLoader(full_graph,
+        train_dl = dgl.dataloading.DataLoader(full_graph,
                                                   train_node_ids,
                                                   train_nbr_sampler,
                                                   device=CPU,
                                                   use_ddp=num_gpus > 1,
                                                   **kwargs)
     else:
-        train_dl = dgl.dataloading.NodeDataLoader(full_graph, train_node_ids, train_nbr_sampler, device=device,
+        train_dl = dgl.dataloading.DataLoader(full_graph, train_node_ids, train_nbr_sampler, device=device,
                                                   use_ddp=num_gpus > 1, **kwargs)
 
     # eval data loaders
@@ -169,17 +169,17 @@ def run(proc_id, devices, num_gpus, data, all_args):
     if sample_device != CPU:
         valid_node_ids = valid_node_ids.to(device)
         test_node_ids = test_node_ids.to(device)
-        kwargs = {'batch_size': args.eval_batch_size, 'shuffle': True, 'drop_last': False, 'pin_memory': False,
+        kwargs = {'batch_size': args.eval_batch_size, 'shuffle': True, 'drop_last': False, 
                   'num_workers': 0}
     else:
-        kwargs = {'batch_size': args.eval_batch_size, 'shuffle': True, 'drop_last': False, 'pin_memory': False,
+        kwargs = {'batch_size': args.eval_batch_size, 'shuffle': True, 'drop_last': False, 
                   'num_workers': args.num_workers, 'prefetch_factor': args.prefetch_factor,
                   'persistent_workers': args.persistent_workers}
         if args.num_workers == 0:
             kwargs.pop('prefetch_factor')
             kwargs.pop('persistent_workers')
-    valid_dl = dgl.dataloading.NodeDataLoader(full_graph, valid_node_ids, eval_nbr_sampler, device=device, **kwargs)
-    test_dl = dgl.dataloading.NodeDataLoader(full_graph, test_node_ids, eval_nbr_sampler, device=device, **kwargs)
+    valid_dl = dgl.dataloading.DataLoader(full_graph, valid_node_ids, eval_nbr_sampler, device=device, **kwargs)
+    test_dl = dgl.dataloading.DataLoader(full_graph, test_node_ids, eval_nbr_sampler, device=device, **kwargs)
 
     # models
     if args.model == 'graph_sage':

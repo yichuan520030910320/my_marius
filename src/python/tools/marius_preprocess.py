@@ -13,10 +13,10 @@ def set_args():
     parser = argparse.ArgumentParser(
                 description='Preprocess Datasets', prog='preprocess')
 
-    parser.add_argument('output_directory',
+    parser.add_argument('--output_directory',
                         metavar='output_directory',
                         type=str,
-                        default="",
+                        default="/scratch/yw8143/dataset/ogbn_arxiv",
                         help='Directory to put graph data')
 
     parser.add_argument('--edges',
@@ -99,13 +99,13 @@ def set_args():
 def main():
     parser = set_args()
     args = parser.parse_args()
-
+    args.dataset="OGBN_ARXIV"
+    args.output_directory="/scratch/yw8143/dataset/ogbn_arxiv"
     if args.output_directory is "":
         args.output_directory = args.dataset
 
     if args.overwrite and Path(args.output_directory).exists():
         shutil.rmtree(args.output_directory)
-
     dataset_dict = {
         "FB15K": fb15k.FB15K,
         "FB15K_237": fb15k_237.FB15K237,
@@ -117,7 +117,7 @@ def main():
         "OGBL_PPA": ogbl_ppa.OGBLPpa,
         "OGBN_ARXIV": ogbn_arxiv.OGBNArxiv,
         "OGBN_PRODUCTS": ogbn_products.OGBNProducts,
-        "OGBN_MAG": ogbn_mag.OGBNMag,
+        # "OGBN_MAG": ogbn_mag.OGBNMag,
         "OGBN_PAPERS100M": ogbn_papers100m.OGBNPapers100M,
         "OGB_WIKIKG90MV2": ogb_wikikg90mv2.OGBWikiKG90Mv2,
         "OGB_MAG240M": ogb_mag240m.OGBMag240M

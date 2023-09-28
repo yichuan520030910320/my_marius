@@ -71,7 +71,7 @@ model:
 storage:
   device_type: cuda
   dataset:
-    base_directory: datasets/ogbn_papers100m_seq_acc/
+    base_directory: /scratch/yw8143/mariusdataset/artifact_papers_all/ogbn_papers100m_seq_acc/
     num_edges: 1615685872
     num_nodes: 111059956
     num_relations: 1

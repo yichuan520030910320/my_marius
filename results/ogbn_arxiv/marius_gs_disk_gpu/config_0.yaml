@@ -1,6 +1,7 @@
 model:
   learning_task: NODE_CLASSIFICATION
   encoder:
+#    use_hashmap_sets: true
     use_incoming_nbrs: true
     use_outgoing_nbrs: true
     layers:
@@ -85,7 +86,7 @@ storage:
     type: PARTITION_BUFFER
     options:
       num_partitions: 32
-      buffer_capacity: 20
+      buffer_capacity: 24
       prefetching: true
       fine_to_coarse_ratio: 1
       num_cache_partitions: 0
@@ -95,7 +96,7 @@ storage:
   full_graph_evaluation: true
 training:
   batch_size: 1000
-  num_epochs: 15
+  num_epochs: 5
   pipeline:
     sync: true
   epochs_per_shuffle: 1

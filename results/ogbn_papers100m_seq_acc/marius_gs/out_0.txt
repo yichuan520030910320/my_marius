@@ -1,0 +1,11 @@
+Number of arguments: 2 arguments.
+['/scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/marius_train', 'experiment_manager/system_comparisons/configs/ogbn_papers100m_seq_acc/marius_gs.yaml']
+[2023-09-14 15:18:44.073] [info] [marius.cpp:29] Start initialization
+[2023-09-14 15:18:48.391] [error] [buffer.cpp:94] Unable to open /scratch/yw8143/mariusdataset/artifact_papers_all/ogbn_papers100m_seq_accnodes/features.bin
+Error: 2
+Traceback (most recent call last):
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/bin/marius_train", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/marius/console_scripts/marius_train.py", line 10, in main
+    m.marius_train(len(sys.argv), sys.argv)
+RuntimeError

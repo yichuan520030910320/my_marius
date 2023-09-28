@@ -1,0 +1,40 @@
+Creating nbr sampler
+Sampler creation took 0.0255s
+Creating train loader
+Train loader creation took 0.0003s
+Creating valid/test loaders
+Valid/test loader creation took 0.0001s
+Running epoch: 1
+Traceback (most recent call last):
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/run_pyg.py", line 525, in <module>
+    run_nc(config_args)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/run_pyg.py", line 463, in run_nc
+    train_nc(train_loader, model, no_compute=c_args.no_compute)
+  File "/home/yw8143/marius_artifact/experiment_manager/baselines/pyg/run_pyg.py", line 45, in train_nc
+    for batch in iter(train_loader):
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch_geometric/loader/base.py", line 36, in __next__
+    return self.transform_fn(next(self.iterator))
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch_geometric/loader/node_loader.py", line 115, in collate_fn
+    input_data: NodeSamplerInput = self.input_data[index]
+  File "/scratch/yw8143/miniconda3/envs/mariusGNNenv/lib/python3.10/site-packages/torch_geometric/sampler/base.py", line 63, in __getitem__
+    self.node[index],
+RuntimeError: CUDA error: initialization error
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+

@@ -1,0 +1,132 @@
+[2023-09-13 00:04:29.754] [info] [marius.cpp:29] Start initialization
+[2023-09-13 00:04:35.219] [info] [marius.cpp:66] Initialization Complete: 5.464s
+[2023-09-13 00:04:35.421] [info] [trainer.cpp:93] ################ Starting training epoch 1 ################
+[2023-09-13 00:04:38.792] [info] [reporting.cpp:167] Nodes processed: [10000/90941], 10.996140%
+[2023-09-13 00:04:38.907] [info] [reporting.cpp:167] Nodes processed: [20000/90941], 21.992281%
+[2023-09-13 00:04:39.021] [info] [reporting.cpp:167] Nodes processed: [30000/90941], 32.988421%
+[2023-09-13 00:04:39.130] [info] [reporting.cpp:167] Nodes processed: [40000/90941], 43.984561%
+[2023-09-13 00:04:39.237] [info] [reporting.cpp:167] Nodes processed: [50000/90941], 54.980702%
+[2023-09-13 00:04:39.345] [info] [reporting.cpp:167] Nodes processed: [60000/90941], 65.976842%
+[2023-09-13 00:04:39.454] [info] [reporting.cpp:167] Nodes processed: [70000/90941], 76.972982%
+[2023-09-13 00:04:39.562] [info] [reporting.cpp:167] Nodes processed: [80000/90941], 87.969123%
+[2023-09-13 00:04:39.673] [info] [reporting.cpp:167] Nodes processed: [90000/90941], 98.965263%
+[2023-09-13 00:04:39.684] [info] [reporting.cpp:167] Nodes processed: [90941/90941], 100.000000%
+[2023-09-13 00:04:39.684] [info] [trainer.cpp:130] ################ Finished training epoch 1 ################
+[2023-09-13 00:04:39.684] [info] [trainer.cpp:149] Epoch Runtime: 4263ms
+[2023-09-13 00:04:39.684] [info] [trainer.cpp:150] Nodes per Second: 21332.629
+[2023-09-13 00:04:39.684] [info] [evaluator.cpp:54] Evaluating validation set
+[2023-09-13 00:04:39.946] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 29799 nodes evaluated
+Accuracy: 63.928320%
+=================================
+[2023-09-13 00:04:39.946] [info] [evaluator.cpp:57] Evaluating test set
+[2023-09-13 00:04:40.355] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 48603 nodes evaluated
+Accuracy: 64.092751%
+=================================
+[2023-09-13 00:04:40.356] [info] [trainer.cpp:93] ################ Starting training epoch 2 ################
+[2023-09-13 00:04:40.463] [info] [reporting.cpp:167] Nodes processed: [10000/90941], 10.996140%
+[2023-09-13 00:04:40.571] [info] [reporting.cpp:167] Nodes processed: [20000/90941], 21.992281%
+[2023-09-13 00:04:40.679] [info] [reporting.cpp:167] Nodes processed: [30000/90941], 32.988421%
+[2023-09-13 00:04:40.788] [info] [reporting.cpp:167] Nodes processed: [40000/90941], 43.984561%
+[2023-09-13 00:04:40.897] [info] [reporting.cpp:167] Nodes processed: [50000/90941], 54.980702%
+[2023-09-13 00:04:41.004] [info] [reporting.cpp:167] Nodes processed: [60000/90941], 65.976842%
+[2023-09-13 00:04:41.113] [info] [reporting.cpp:167] Nodes processed: [70000/90941], 76.972982%
+[2023-09-13 00:04:41.223] [info] [reporting.cpp:167] Nodes processed: [80000/90941], 87.969123%
+[2023-09-13 00:04:41.332] [info] [reporting.cpp:167] Nodes processed: [90000/90941], 98.965263%
+[2023-09-13 00:04:41.342] [info] [reporting.cpp:167] Nodes processed: [90941/90941], 100.000000%
+[2023-09-13 00:04:41.342] [info] [trainer.cpp:130] ################ Finished training epoch 2 ################
+[2023-09-13 00:04:41.342] [info] [trainer.cpp:149] Epoch Runtime: 986ms
+[2023-09-13 00:04:41.342] [info] [trainer.cpp:150] Nodes per Second: 92232.25
+[2023-09-13 00:04:41.342] [info] [evaluator.cpp:54] Evaluating validation set
+[2023-09-13 00:04:41.602] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 29799 nodes evaluated
+Accuracy: 66.367999%
+=================================
+[2023-09-13 00:04:41.602] [info] [evaluator.cpp:57] Evaluating test set
+[2023-09-13 00:04:42.013] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 48603 nodes evaluated
+Accuracy: 65.596774%
+=================================
+[2023-09-13 00:04:42.014] [info] [trainer.cpp:93] ################ Starting training epoch 3 ################
+[2023-09-13 00:04:42.122] [info] [reporting.cpp:167] Nodes processed: [10000/90941], 10.996140%
+[2023-09-13 00:04:42.231] [info] [reporting.cpp:167] Nodes processed: [20000/90941], 21.992281%
+[2023-09-13 00:04:42.339] [info] [reporting.cpp:167] Nodes processed: [30000/90941], 32.988421%
+[2023-09-13 00:04:42.447] [info] [reporting.cpp:167] Nodes processed: [40000/90941], 43.984561%
+[2023-09-13 00:04:42.555] [info] [reporting.cpp:167] Nodes processed: [50000/90941], 54.980702%
+[2023-09-13 00:04:42.663] [info] [reporting.cpp:167] Nodes processed: [60000/90941], 65.976842%
+[2023-09-13 00:04:42.772] [info] [reporting.cpp:167] Nodes processed: [70000/90941], 76.972982%
+[2023-09-13 00:04:42.881] [info] [reporting.cpp:167] Nodes processed: [80000/90941], 87.969123%
+[2023-09-13 00:04:42.990] [info] [reporting.cpp:167] Nodes processed: [90000/90941], 98.965263%
+[2023-09-13 00:04:43.000] [info] [reporting.cpp:167] Nodes processed: [90941/90941], 100.000000%
+[2023-09-13 00:04:43.000] [info] [trainer.cpp:130] ################ Finished training epoch 3 ################
+[2023-09-13 00:04:43.000] [info] [trainer.cpp:149] Epoch Runtime: 986ms
+[2023-09-13 00:04:43.000] [info] [trainer.cpp:150] Nodes per Second: 92232.25
+[2023-09-13 00:04:43.000] [info] [evaluator.cpp:54] Evaluating validation set
+[2023-09-13 00:04:43.260] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 29799 nodes evaluated
+Accuracy: 66.985469%
+=================================
+[2023-09-13 00:04:43.260] [info] [evaluator.cpp:57] Evaluating test set
+[2023-09-13 00:04:43.667] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 48603 nodes evaluated
+Accuracy: 65.691418%
+=================================
+[2023-09-13 00:04:43.668] [info] [trainer.cpp:93] ################ Starting training epoch 4 ################
+[2023-09-13 00:04:43.775] [info] [reporting.cpp:167] Nodes processed: [10000/90941], 10.996140%
+[2023-09-13 00:04:43.883] [info] [reporting.cpp:167] Nodes processed: [20000/90941], 21.992281%
+[2023-09-13 00:04:43.991] [info] [reporting.cpp:167] Nodes processed: [30000/90941], 32.988421%
+[2023-09-13 00:04:44.103] [info] [reporting.cpp:167] Nodes processed: [40000/90941], 43.984561%
+[2023-09-13 00:04:44.212] [info] [reporting.cpp:167] Nodes processed: [50000/90941], 54.980702%
+[2023-09-13 00:04:44.323] [info] [reporting.cpp:167] Nodes processed: [60000/90941], 65.976842%
+[2023-09-13 00:04:44.431] [info] [reporting.cpp:167] Nodes processed: [70000/90941], 76.972982%
+[2023-09-13 00:04:44.540] [info] [reporting.cpp:167] Nodes processed: [80000/90941], 87.969123%
+[2023-09-13 00:04:44.649] [info] [reporting.cpp:167] Nodes processed: [90000/90941], 98.965263%
+[2023-09-13 00:04:44.659] [info] [reporting.cpp:167] Nodes processed: [90941/90941], 100.000000%
+[2023-09-13 00:04:44.659] [info] [trainer.cpp:130] ################ Finished training epoch 4 ################
+[2023-09-13 00:04:44.659] [info] [trainer.cpp:149] Epoch Runtime: 991ms
+[2023-09-13 00:04:44.659] [info] [trainer.cpp:150] Nodes per Second: 91766.91
+[2023-09-13 00:04:44.659] [info] [evaluator.cpp:54] Evaluating validation set
+[2023-09-13 00:04:44.919] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 29799 nodes evaluated
+Accuracy: 67.049230%
+=================================
+[2023-09-13 00:04:44.919] [info] [evaluator.cpp:57] Evaluating test set
+[2023-09-13 00:04:45.327] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 48603 nodes evaluated
+Accuracy: 66.617287%
+=================================
+[2023-09-13 00:04:45.327] [info] [trainer.cpp:93] ################ Starting training epoch 5 ################
+[2023-09-13 00:04:45.436] [info] [reporting.cpp:167] Nodes processed: [10000/90941], 10.996140%
+[2023-09-13 00:04:45.544] [info] [reporting.cpp:167] Nodes processed: [20000/90941], 21.992281%
+[2023-09-13 00:04:45.653] [info] [reporting.cpp:167] Nodes processed: [30000/90941], 32.988421%
+[2023-09-13 00:04:45.762] [info] [reporting.cpp:167] Nodes processed: [40000/90941], 43.984561%
+[2023-09-13 00:04:45.871] [info] [reporting.cpp:167] Nodes processed: [50000/90941], 54.980702%
+[2023-09-13 00:04:45.979] [info] [reporting.cpp:167] Nodes processed: [60000/90941], 65.976842%
+[2023-09-13 00:04:46.086] [info] [reporting.cpp:167] Nodes processed: [70000/90941], 76.972982%
+[2023-09-13 00:04:46.195] [info] [reporting.cpp:167] Nodes processed: [80000/90941], 87.969123%
+[2023-09-13 00:04:46.303] [info] [reporting.cpp:167] Nodes processed: [90000/90941], 98.965263%
+[2023-09-13 00:04:46.314] [info] [reporting.cpp:167] Nodes processed: [90941/90941], 100.000000%
+[2023-09-13 00:04:46.314] [info] [trainer.cpp:130] ################ Finished training epoch 5 ################
+[2023-09-13 00:04:46.314] [info] [trainer.cpp:149] Epoch Runtime: 986ms
+[2023-09-13 00:04:46.314] [info] [trainer.cpp:150] Nodes per Second: 92232.25
+[2023-09-13 00:04:46.314] [info] [evaluator.cpp:54] Evaluating validation set
+[2023-09-13 00:04:46.574] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 29799 nodes evaluated
+Accuracy: 68.045908%
+=================================
+[2023-09-13 00:04:46.574] [info] [evaluator.cpp:57] Evaluating test set
+[2023-09-13 00:04:46.982] [info] [reporting.cpp:134] 
+=================================
+Node Classification: 48603 nodes evaluated
+Accuracy: 67.386787%
+=================================

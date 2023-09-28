@@ -1,4 +1,5 @@
-from torch_geometric.loader.utils import filter_data, to_csc
+from torch_geometric.loader.utils import filter_data
+from torch_geometric.sampler.utils import remap_keys, to_csc, to_hetero_csc
 import torch
 import sys
 import math
