@@ -92,6 +92,12 @@ def set_args():
                         action='store_true',
                         default=False,
                         help='If true, the train nodes will be given ids 0 to num train nodes')
+    parser.add_argument('--dataset_type', type=str, default='homogeneous',
+        choices=['homogeneous', 'heterogeneous'], 
+        help='dataset type')
+    parser.add_argument('--dataset_size', type=str, default='tiny',
+        choices=['tiny', 'small', 'medium'], 
+        help='size of the datasets')
 
     return parser
 
@@ -99,10 +105,10 @@ def set_args():
 def main():
     parser = set_args()
     args = parser.parse_args()
-    args.dataset="OGBN_ARXIV"
-    args.output_directory="/home/yw8143/marius_artifact/datasets/ogbn_arxiv_debug_32_partitions_seq_train_nodes"
-    args.num_partitions=32
+    args.dataset="IGB"
+    args.output_directory="/home/yw8143/marius_artifact/datasets/IGB"
     args.sequential_train_nodes=True
+    args.num_partitions=50
     args.overwrite=True
     if args.output_directory is "":
         args.output_directory = args.dataset
@@ -123,10 +129,14 @@ def main():
         # "OGBN_MAG": ogbn_mag.OGBNMag,
         "OGBN_PAPERS100M": ogbn_papers100m.OGBNPapers100M,
         "OGB_WIKIKG90MV2": ogb_wikikg90mv2.OGBWikiKG90Mv2,
-        "OGB_MAG240M": ogb_mag240m.OGBMag240M
+        "OGB_MAG240M": ogb_mag240m.OGBMag240M,
+        'IGB': igb.IGB
     }
 
     dataset = dataset_dict.get(args.dataset.upper())
+    if args.dataset=="IGB":
+        dataset.dataset_type=args.dataset_type
+        dataset.dataset_size=args.dataset_size
     if dataset is not None:
         dataset = dataset(args.output_directory)
         dataset.download(args.overwrite)
