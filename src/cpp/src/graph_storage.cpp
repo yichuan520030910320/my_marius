@@ -476,6 +476,7 @@ bool GraphModelStorage::embeddingsOffDevice() {
 void GraphModelStorage::initializeInMemorySubGraph(torch::Tensor buffer_state, int num_hash_maps) {
 
     if (useInMemorySubGraph()) {
+        SPDLOG_INFO("Initializing in memory subgraph");
         current_subgraph_state_ = new InMemorySubgraphState();
 
         buffer_state = buffer_state.to(torch::kInt64);

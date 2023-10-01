@@ -419,6 +419,9 @@ GraphModelStorage *initializeStorageNodeClassification(std::shared_ptr<Model> mo
     storage_ptrs.test_nodes = std::get<2>(node_id_storages);
 
     storage_ptrs.nodes = storage_ptrs.train_nodes;
+    
+    SPDLOG_INFO("train node dim0 {}", storage_ptrs.train_nodes->getDim0());
+    // SPDLOG_DEBUG("train node {}", storage_ptrs.train_nodes);
     storage_ptrs.node_features = node_features;
     storage_ptrs.node_labels = node_labels;
 
