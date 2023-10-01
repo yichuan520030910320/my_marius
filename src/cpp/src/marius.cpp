@@ -10,7 +10,8 @@
 #include "util.h"
 
 void marius(int argc, char *argv[]) {
-    
+    spdlog::set_level(spdlog::level::debug); // Set global log level to debug
+
     bool train = true;
     string command_path = string(argv[0]);
     string config_path = string(argv[1]);

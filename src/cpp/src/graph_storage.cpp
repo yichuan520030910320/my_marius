@@ -511,7 +511,19 @@ void GraphModelStorage::initializeInMemorySubGraph(torch::Tensor buffer_state, i
         torch::Tensor edge_bucket_starts_disk = edge_bucket_ends_disk - edge_bucket_sizes;
         auto edge_bucket_sizes_accessor = edge_bucket_sizes.accessor<int64_t, 1>();
         auto edge_bucket_starts_disk_accessor = edge_bucket_starts_disk.accessor<int64_t, 1>();
-
+        SPDLOG_INFO("Done getting edge bucket sizes");
+        // log buffer state
+        std::stringstream ss;
+        ss << buffer_state;  // Converts tensor to a string representation
+        SPDLOG_DEBUG("Buffer state: {}", ss.str());
+        //log debug edge_bucket_sizes
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< edge_bucket_sizes;
+        SPDLOG_TRACE("Edge bucket sizes: {}", ss.str());
+        //log debug edge_bucket_starts_disk
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< edge_bucket_starts_disk;
+        SPDLOG_TRACE("Edge bucket starts disk: {}", ss.str());
         #pragma omp parallel for
         for (int i = 0; i < buffer_size; i++) {
             for (int j = 0; j < buffer_size; j++) {
@@ -530,11 +542,22 @@ void GraphModelStorage::initializeInMemorySubGraph(torch::Tensor buffer_state, i
 //                global_edge_bucket_starts_dst_accessor[idx] = edge_bucket_start;
             }
         }
+        // log in_mem_edge_bucket_ids
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< in_mem_edge_bucket_ids;
+        SPDLOG_DEBUG("In mem edge bucket ids: {}", ss.str());
 
         torch::Tensor in_mem_edge_bucket_starts = in_mem_edge_bucket_sizes.cumsum(0);
         int64_t total_size = in_mem_edge_bucket_starts[-1].item<int64_t>();
+        // debug log total size
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< total_size;
+        SPDLOG_DEBUG("Total size: {}", ss.str());
         in_mem_edge_bucket_starts = in_mem_edge_bucket_starts - in_mem_edge_bucket_sizes;
-
+        //debug log in_mem_edge_bucket_starts
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< in_mem_edge_bucket_starts;
+        SPDLOG_DEBUG("In mem edge bucket starts: {}", ss.str());
 //        torch::Tensor in_mem_edge_bucket_starts_dst = in_mem_edge_bucket_sizes_dst.cumsum(0);
 //        in_mem_edge_bucket_starts_dst = in_mem_edge_bucket_starts_dst - in_mem_edge_bucket_sizes_dst;
 
@@ -557,12 +580,22 @@ void GraphModelStorage::initializeInMemorySubGraph(torch::Tensor buffer_state, i
 //            local_offset = in_mem_edge_bucket_starts_dst_accessor[i];
 //            current_subgraph_state_->all_in_memory_edges_dst_sort_.narrow(0, local_offset, edge_bucket_size) = storage_ptrs_.train_edges_dst_sort->range(edge_bucket_start, edge_bucket_size);
         }
+        //log debug all_in_memory_edges
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< current_subgraph_state_->all_in_memory_edges_;
+        SPDLOG_TRACE("All in memory edges: {}", ss.str());
+        //shape [ CPULongType{491507,2} ]
 
         if (storage_ptrs_.node_embeddings != nullptr) {
             current_subgraph_state_->global_to_local_index_map_ = ((PartitionBufferStorage *) storage_ptrs_.node_embeddings)->getGlobalToLocalMap(true);
         } else if (storage_ptrs_.node_features != nullptr) {
             current_subgraph_state_->global_to_local_index_map_ = ((PartitionBufferStorage *) storage_ptrs_.node_features)->getGlobalToLocalMap(true);
         }
+
+        //log debug global_to_local_index_map
+        ss.str("");  ss.clear();  // Clear state flags
+        ss<< current_subgraph_state_->global_to_local_index_map_;
+        SPDLOG_TRACE("Global to local index map: {}", ss.str());
 
         torch::Tensor mapped_edges;
         torch::Tensor mapped_edges_dst_sort;
