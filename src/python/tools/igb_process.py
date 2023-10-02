@@ -98,6 +98,13 @@ def set_args():
     parser.add_argument('--dataset_size', type=str, default='tiny',
         choices=['tiny', 'small', 'medium'], 
         help='size of the datasets')
+    ## add train/val/test split as a list
+    parser.add_argument('--train_split', type=float, default=0.1,
+        help='train split')
+    parser.add_argument('--val_split', type=float, default=0.1,
+        help='val split')
+    parser.add_argument('--test_split', type=float, default=0.8,
+        help='test split')
 
     return parser
 
@@ -106,10 +113,12 @@ def main():
     parser = set_args()
     args = parser.parse_args()
     args.dataset="IGB"
-    args.output_directory="/home/yw8143/marius_artifact/datasets/IGB"
     args.sequential_train_nodes=True
-    args.num_partitions=50
-    args.overwrite=True
+    args.num_partitions=100
+    args.overwrite=False
+    
+    # args.output_directory=f"/scratch/yw8143/mariusdataset/IGB_{args.dataset_type}_{args.dataset_size}_{args.num_partitions}"
+    args.output_directory=f"/home/yw8143/marius_artifact/datasets/IGB_{args.dataset_type}_{args.dataset_size}_{args.num_partitions}"
     if args.output_directory is "":
         args.output_directory = args.dataset
 
@@ -137,6 +146,9 @@ def main():
     if args.dataset=="IGB":
         dataset.dataset_type=args.dataset_type
         dataset.dataset_size=args.dataset_size
+        dataset.train_percentage=0.1
+        dataset.valid_percentage=0.1
+        dataset.test_percentage=0.8
     if dataset is not None:
         dataset = dataset(args.output_directory)
         dataset.download(args.overwrite)

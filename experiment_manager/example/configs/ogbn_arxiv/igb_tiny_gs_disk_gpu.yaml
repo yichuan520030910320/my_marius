@@ -1,0 +1,88 @@
+model:
+  learning_task: NODE_CLASSIFICATION
+  encoder:
+    use_incoming_nbrs: true
+    # use_outgoing_nbrs: true
+    layers:
+      - train_neighbor_sampling:
+          type: UNIFORM
+          options:
+            max_neighbors: 10
+        eval_neighbor_sampling:
+          type: UNIFORM
+          options:
+            max_neighbors: 10
+        init:
+          type: GLOROT_NORMAL
+        type: GRAPH_SAGE
+        options:
+          input_dim: 1024
+          output_dim: 128
+          aggregator: MEAN
+        bias: true
+        bias_init:
+          type: ZEROS
+        activation: RELU
+      - train_neighbor_sampling:
+          type: UNIFORM
+          options:
+            max_neighbors: 15
+        eval_neighbor_sampling:
+          type: UNIFORM
+          options:
+            max_neighbors: 15
+        init:
+          type: GLOROT_NORMAL
+        type: GRAPH_SAGE
+        options:
+          input_dim: 128
+          output_dim: 19
+          aggregator: MEAN
+        bias: true
+        bias_init:
+          type: ZEROS
+        activation: RELU
+    optimizer:
+      type: ADAM
+      options:
+        learning_rate: 0.01
+storage:
+  device_type: cuda
+  dataset:
+    base_directory: /home/yw8143/marius_artifact/datasets/IGB_homogeneous_tiny_100/
+    num_edges: 447416
+    num_nodes: 100000
+    num_relations: 1
+    num_train: 10000
+    num_valid: 10000
+    num_test: 80000
+    feature_dim: 1024
+    num_classes: 19
+  edges:
+    type: FLAT_FILE
+  nodes:
+    type: HOST_MEMORY
+  features:
+    type: PARTITION_BUFFER
+    options:
+      num_partitions: 100
+      buffer_capacity: 15
+      prefetching: true
+      fine_to_coarse_ratio: 1
+      num_cache_partitions: 0
+      node_partition_ordering: SEQUENTIAL
+  prefetch: true
+  shuffle_input: true
+  full_graph_evaluation: true
+training:
+  batch_size: 10240
+  num_epochs: 15
+  pipeline:
+    sync: true
+  epochs_per_shuffle: 1
+  logs_per_epoch: 10
+evaluation:
+  batch_size: 10240
+  pipeline:
+    sync: true
+  epochs_per_eval: 1
